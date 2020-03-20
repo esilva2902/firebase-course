@@ -4,12 +4,14 @@ import {COURSES, findLessonsForCourse} from './db-data';
 import * as firebase from 'firebase';
 
 var config = {
-    apiKey: "AIzaSyDNPCbN20dZrAbGChRjyBSDmu2uRiPyBMk",
-    authDomain: "test-a6f61.firebaseapp.com",
-    databaseURL: "https://test-a6f61.firebaseio.com",
-    projectId: "test-a6f61",
-    storageBucket: "test-a6f61.appspot.com",
-    messagingSenderId: "24603706805"
+  apiKey: "AIzaSyDYNT7MxddIyM2qUV2tpmAa0ivfJGJ76kY",
+  authDomain: "fir-course-ems.firebaseapp.com",
+  databaseURL: "https://fir-course-ems.firebaseio.com",
+  projectId: "fir-course-ems",
+  storageBucket: "fir-course-ems.appspot.com",
+  messagingSenderId: "1015254468015",
+  appId: "1:1015254468015:web:637a031746c1d746cc5b5a"
+
 };
 
 console.log("Uploading data to the database with the following config:\n");
@@ -35,17 +37,21 @@ async function uploadData() {
 
       const newCourse = removeId(course);
 
+      console.log(`Adding course ${newCourse.titles.description}`);
+
       const courseRef = await courses.add(newCourse);
 
       const lessons = courseRef.collection("lessons");
 
       const courseLessons = findLessonsForCourse(course.id);
 
-      //console.log(`Adding ${courseLessons.length} lessons to ${course.description}`);
+      console.log(`Adding ${courseLessons.length} lessons to ${newCourse.titles.description}`);
 
       courseLessons.forEach(async lesson => {
 
         const newLesson = removeId(lesson);
+
+        console.log(`Lesson: ${newLesson.description}`);
 
         await lessons.add(newLesson);
 
