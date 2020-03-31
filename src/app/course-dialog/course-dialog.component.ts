@@ -64,8 +64,11 @@ export class CourseDialogComponent implements OnInit {
         const changes = this.form.value;
 
         this.coursesService.saveCourse(this.course.id, {titles: changes})
-            .subscribe(
-                () => this.dialogRef.close(this.form.value)
+            .subscribe((value) => {
+                    console.log(`after editing a course: `, value);
+                    
+                    this.dialogRef.close(this.form.value)
+                }
             );
     }
 

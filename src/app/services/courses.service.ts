@@ -16,7 +16,7 @@ export class CoursesService {
 
 
 
-    saveCourse(courseId:string, changes: Partial<Course>): Observable<any> {
+    saveCourse(courseId:string, changes: Partial<Course>): Observable<void> {
 
       return from(this.db.doc(`courses/${courseId}`).update(changes));
       
@@ -25,10 +25,14 @@ export class CoursesService {
     loadAllCourses(): Observable<Course[]> {
         return this.db.collection(
             'courses',
-                // ref=> ref.orderBy("seqNo")
-                ref => ref
-                        .where('seqNo', '==', 5)
-                        .where('lessonsCount', '>=', 5)
+                ref => ref.orderBy("seqNo")
+                /**
+                 * The following criteria was an example to generate 
+                 * an index based on the matching fields:
+                 */
+                // ref => ref
+                //         .where('seqNo', '==', 5)
+                //         .where('lessonsCount', '>=', 5)
             )
             .snapshotChanges()
             .pipe(
@@ -39,7 +43,7 @@ export class CoursesService {
 
     findCourseByUrl(courseUrl: string):Observable<Course> {
         return this.db.collection('courses',
-            ref=> ref.where("url", "==", courseUrl))
+            ref => ref.where("url", "==", courseUrl))
             .snapshotChanges()
             .pipe(
                 map(snaps => {
@@ -66,10 +70,6 @@ export class CoursesService {
           )
 
     }
-
-
-
-
 }
 
 
