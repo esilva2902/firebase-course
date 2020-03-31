@@ -6,12 +6,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDAdoefqX5OqjkD3BkW25ZAL6XYZMo4Vz8",
-    authDomain: "fir-course-17549.firebaseapp.com",
-    databaseURL: "https://fir-course-17549.firebaseio.com",
-    projectId: "fir-course-17549",
-    storageBucket: "fir-course-17549.appspot.com",
-    messagingSenderId: "170806523820",
-    appId: "1:170806523820:web:a3181632d54d076a0bec09"
+    apiKey: "AIzaSyDYNT7MxddIyM2qUV2tpmAa0ivfJGJ76kY",
+    authDomain: "fir-course-ems.firebaseapp.com",
+    databaseURL: "https://fir-course-ems.firebaseio.com",
+    projectId: "fir-course-ems",
+    storageBucket: "fir-course-ems.appspot.com",
+    messagingSenderId: "1015254468015",
+    appId: "1:1015254468015:web:637a031746c1d746cc5b5a"
   }
 };

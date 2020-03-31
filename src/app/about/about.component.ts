@@ -19,8 +19,17 @@ export class AboutComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.db.collection('courses').valueChanges().subscribe(value => {
+            console.log(`valueChanges() => courses collection: `, value);
+        });
 
+        this.db.collection('courses').snapshotChanges().subscribe(value => {
+            console.log(`snapshotChanges() => courses collection: `, value);
+        });
 
+        this.db.collection('courses').stateChanges().subscribe(value => {
+            console.log(`stateChanges() => courses collection: `, value);
+        });
     }
 
     save() {
