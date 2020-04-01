@@ -72,7 +72,7 @@ import { LoginComponent } from './login/login.component';
         ReactiveFormsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
-        AngularFirestoreModule.enablePersistence(),
+        AngularFirestoreModule,
         AngularFireStorageModule
     ],
     providers: [

@@ -35,10 +35,10 @@ export class AboutComponent implements OnInit {
     save() {
 
         const firebaseCourseRef =
-            this.db.doc('/courses/JVXlcA6ph98c7Vg2nc4E').ref;
+            this.db.doc('/courses/HjBJsRWRtGAmauQSnHUh').ref;
 
         const rxjsCourseRef =
-            this.db.doc('/courses/MsU0Mz7pNSbnhzYSkt9y').ref;
+            this.db.doc('/courses/b7FhWMPuf6oN3RnHaqV9').ref;
 
         const batch = this.db.firestore.batch();
 
