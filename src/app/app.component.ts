@@ -18,11 +18,19 @@ export class AppComponent implements OnInit {
 
     constructor(private afAuth: AngularFireAuth) {
 
+        /**
+         * 1. Firstly, inject the service we need to manange 
+         * the authenticated user: AngularFireAuth
+         */
 
     }
 
     ngOnInit() {
 
+        /**
+         * 2. authState observable watches for the autheticated user.
+         *    If the user log out the authState observable will emit null:
+         */
         this.afAuth.authState.subscribe(user => console.log(user));
 
         this.isLoggedIn$ = this.afAuth.authState.pipe(map(user => !!user));
