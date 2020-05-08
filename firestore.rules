@@ -24,11 +24,13 @@ service cloud.firestore {
           get( /databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
      }
           
+      // We could access path variables with $():
      function isKnownUser() {
         return isAuthenticated() && 
         exists( /databases/$(database)/documents/users/$(request.auth.uid) );
      }
      
+     // We protect users collection from client access:
      match /users/{userId} {
        allow read, write: if false;
      }
