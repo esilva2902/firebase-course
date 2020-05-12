@@ -39,6 +39,10 @@
 
         </div>
 
+        <ng-container *ngIf="downloadURL$ | async as url">
+            <img [src]="url" alt="Uploaded image">
+        </ng-container>
+
     </div>
 
 
